@@ -43,3 +43,26 @@
 + __countByValue__ Cuenta el número de ocurrencias de cada valor en el conjunto de datos.
 + __saveAsTextFile__ Guarda el conjunto de datos como un archivo de texto en el sistema de archivos especificado.
 
+### DIferencias flatmap() y map()
+
+__map()__ 
+
+Transforma cada elemento de un RDD a un nuevo elemento 
+
+Un input y un output
+
+Ejemplo:
+
+![image](https://github.com/user-attachments/assets/57fd3c64-5bd6-402b-bbb9-c14a66a7fae5)
+
+__flatmap()__
+
+Transforma cada elemento de un RDD en uno o varios elementos 
+
+Un input y varios output
+
+Ejemplo:
+
+![image](https://github.com/user-attachments/assets/2a567b9d-dd9a-4c23-8c5e-76243b0cf962)
+
+
