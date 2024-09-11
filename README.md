@@ -73,4 +73,13 @@ Las variables broadcast en PySpark son una forma eficiente de compartir datos en
 En lugar de enviar la variable a cada nodo con cada operación, Spark distribuye la variable a los nodos una vez y la almacena en caché, lo que reduce la sobrecarga de comunicación.
 
 
+__Conteo de ocurrencias__
+
+Pasos para contar cuantas veces aparece una tecnologia por linea
+
+1) Mapear input data a (itemTecnologia, #ocurrencias) por linea
+2) Sumar co-ocurrencias por tecnologia usando reduceByKey()
+3) invertir mapeo RDD a (#ocurrencias, itemTecnologia)
+4) Buscamos el itemTecnologia y mostramos resultados
+
 
