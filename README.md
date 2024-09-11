@@ -66,3 +66,11 @@ Ejemplo:
 ![image](https://github.com/user-attachments/assets/2a567b9d-dd9a-4c23-8c5e-76243b0cf962)
 
 
+__Variables Broadcast__
+
+Las variables broadcast en PySpark son una forma eficiente de compartir datos entre todos los nodos del clúster. Cuando tienes un conjunto de datos relativamente pequeño (como una lista o un diccionario) que es constante y quieres que esté disponible en cada nodo sin ser enviado repetidamente, puedes usar una variable broadcast.
+
+En lugar de enviar la variable a cada nodo con cada operación, Spark distribuye la variable a los nodos una vez y la almacena en caché, lo que reduce la sobrecarga de comunicación.
+
+
+
