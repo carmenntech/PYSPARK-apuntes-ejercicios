@@ -21,7 +21,7 @@
 
 
 ### Fuciones de transformacion 
-+ __map__ Permite tomar un set de datos y transfomarlo en otro dada una funcion (lamda)
++ __map__ Permite tomar un set de datos y transfomarlo en otro dada una funcion (lambda)
 + __filter__ Filtra los datos que no quieres que sean procesados en el set de datos
 + __flatMap__ Es la misma funcion que map() pero puede devolver varios set de datos 
 + __mapPartitions__ plica una función a cada partición del conjunto de datos en lugar de aplicarla a cada elemento individualmente
