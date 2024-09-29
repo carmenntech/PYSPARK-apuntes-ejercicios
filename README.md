@@ -1,3 +1,17 @@
+## Funciones importantes 
+
+### Funciones de metadatos
+
+__df.show(5)__ -> Muestra las primeras 5 filas
+
+__df.printSchema()__ --> Muestra un esquema con las columnas y los tipos de datos del ddr
+
+__df.colums__ -> Muestra los nombres de las columnas 
+
+__df.stype__ -> Muestra los tipos de las columnas 
+
+### Funciones de selección 
+
 
 ### Pasos
 
