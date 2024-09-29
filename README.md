@@ -1,19 +1,61 @@
+# Apuntes PYSPARK
+
 ## Funciones importantes 
 
 ### Funciones de metadatos
 
-__df.show(5)__ -> Muestra las primeras 5 filas
+`df.show(5)` Muestra las primeras 5 filas
 
-__df.printSchema()__ --> Muestra un esquema con las columnas y los tipos de datos del ddr
+`df.printSchema()` Muestra un esquema con las columnas y los tipos de datos del ddr
 
-__df.colums__ -> Muestra los nombres de las columnas 
+`df.colums` Muestra los nombres de las columnas 
 
-__df.stype__ -> Muestra los tipos de las columnas 
+`df.stype` Muestra los tipos de las columnas 
 
 ### Funciones de selección 
 
+`df.select(data.edad).show() | show(Truncate=False)`
+ Seleccionar solo una columna
 
-### Pasos
+`df.select(data['edad']).show()`
+ Seleccionar solo una columna
+
+`df.select(data.edad, data.urn_id).show(Truncate=False)`
+ Seleccionar varias columnas
+
+### Agregar nuevas columnas
+
+```
+from pyspark.sql.fuctions import lit
+
+df = data.withColumn('First_Column', lit(1)) \
+      .withColumn('Second_Column', lit(2))
+```
+
+### Operaciones de columnas 
+
+`df.gorupBy("location", "edad").count().show()` Agrupar por columna
+
+`df = df.drop('Second-column', 'Third-column')` Eliminar columna
+
+`df.orderBy('Primera-columna').show()` Ordenar las filas por la primera columna
+
+`df.groupBy('Origin').count().orderBy('count', ascending=False).show()`
+
+
+### Filtrados
+
+Filtrar por una columna:
+
+`madrid = df.filter(col('location')=="Madrid").show(truncate=False)` 
+
+Filtrar por varias columnas:
+
+```
+madrid_18 = df.filter((col('location')=="Madrid")&(col('location')=="Madrid")).show(truncate=False)
+```
+
+### Primeros Pasos
 
 1- Configuramos nuestra 'granja' de spark, el numero de ordenadores, sus ips... en este caso es un solo ordenador local, después creamos un spark context
 
