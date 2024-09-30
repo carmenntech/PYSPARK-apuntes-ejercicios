@@ -1,8 +1,8 @@
 # Apuntes PYSPARK
 
-## Funciones importantes 
+## Funciones basicas
 
-### Funciones de metadatos
+### Funciones metadatos
 
 `df.show(5)` Muestra las primeras 5 filas
 
@@ -54,6 +54,28 @@ Filtrar por varias columnas:
 ```
 madrid_18 = df.filter((col('location')=="Madrid")&(col('location')=="Madrid")).show(truncate=False)
 ```
+
+## Joins
+
+Sintaxis de unión de PySpark:
+
+df1.join(df2, join_condition, join_type)
+
+Por defecto y si no ponemos nada el join_type es inner
+
+
+### Inner join
+
+```
+df_joined = df_employees.join(df_departments, df_employees.dept_id == df_departments.dept_id)
+```
+
+
+
+
+
+
+
 
 ### Primeros Pasos
 
