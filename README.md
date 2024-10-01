@@ -54,8 +54,9 @@ Filtrar por varias columnas:
 ```
 madrid_18 = df.filter((col('location')=="Madrid")&(col('location')=="Madrid")).show(truncate=False)
 ```
+## Pyspark SQL
 
-## Joins
+### Joins
 
 Sintaxis de unión de PySpark:
 
@@ -64,20 +65,25 @@ Sintaxis de unión de PySpark:
 Por defecto y si no ponemos nada el join_type es inner
 
 
-### Inner join
+__Inner join__
 
-```
-df_joined = df_employees.join(df_departments, df_employees.dept_id == df_departments.dept_id)
-```
+`df_joined = df_employees.join(df_departments, df_employees.dept_id == df_departments.dept_id)`
 
-### Cross Join
-
+__Cross Join__
 
 `df1.crossJoin(df2)`
 
+__Left Join__
 
+`df1.join(df2, join_condition, "left")`
 
+__Left Anti Join__
 
+`df_non_purchasers = df_users.join(df_purchases, df_users.id == df_purchases.user_id, "left_anti")`
+
+###Unions 
+
+Las transformaciones union() y unionAll() de PySpark se utilizan para fusionar dos o más DataFrame del mismo esquema o estructura
 
 ### Primeros Pasos
 
