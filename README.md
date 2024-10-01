@@ -59,7 +59,7 @@ madrid_18 = df.filter((col('location')=="Madrid")&(col('location')=="Madrid")).s
 
 Sintaxis de unión de PySpark:
 
-df1.join(df2, join_condition, join_type)
+`df1.join(df2, join_condition, join_type)`
 
 Por defecto y si no ponemos nada el join_type es inner
 
@@ -70,8 +70,10 @@ Por defecto y si no ponemos nada el join_type es inner
 df_joined = df_employees.join(df_departments, df_employees.dept_id == df_departments.dept_id)
 ```
 
+### Cross Join
 
 
+`df1.crossJoin(df2)`
 
 
 
