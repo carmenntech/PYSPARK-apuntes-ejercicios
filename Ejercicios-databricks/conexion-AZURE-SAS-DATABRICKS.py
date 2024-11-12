@@ -14,7 +14,7 @@ spark = SparkSession.builder \
 # Configuración de acceso a Azure Data Lake con Access Key
 spark.conf.set("fs.azure.account.auth.type.storagecarmen.dfs.core.windows.net", "SAS")
 spark.conf.set("fs.azure.sas.token.provider.type.storagecarmen.dfs.core.windows.net", "org.apache.hadoop.fs.azurebfs.sas.FixedSASTokenProvider")
-spark.conf.set("fs.azure.sas.fixed.token.storagecarmen.dfs.core.windows.net", "sp=rwl&st=2024-11-12T18:03:50Z&se=2024-11-13T02:03:50Z&spr=https&sv=2022-11-02&sr=c&sig=K93K%2F7E2yEgnoC56%2BKlJ%2BbNlMKWRcwnfDJtbrkrz8mM%3D")
+spark.conf.set("fs.azure.sas.fixed.token.storagecarmen.dfs.core.windows.net", sas_secrect)
 
 
 # COMMAND ----------

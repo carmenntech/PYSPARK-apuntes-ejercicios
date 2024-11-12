@@ -12,7 +12,7 @@ spark = SparkSession.builder \
     .getOrCreate()
 
 # Configuración de acceso a Azure Data Lake con Access Key
-spark.conf.set("fs.azure.account.key.storagecarmen.dfs.core.windows.net",     "kblOCKU6MCuvirJZd4KzxX4QDxfjbxGi3OCnY1fL5Ypr7IdtFRmIjbw8U0g7dRV7ciB9FkWMmSVJ+AStnO6B/w==")
+spark.conf.set("fs.azure.account.key.storagecarmen.dfs.core.windows.net",     acceskey)
 
 
 
