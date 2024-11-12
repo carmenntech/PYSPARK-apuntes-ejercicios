@@ -1,19 +1,91 @@
-## Funciones importantes 
+# Apuntes PYSPARK
 
-### Funciones de metadatos
+## Funciones basicas
 
-__df.show(5)__ -> Muestra las primeras 5 filas
+### Funciones metadatos
 
-__df.printSchema()__ --> Muestra un esquema con las columnas y los tipos de datos del ddr
+`df.show(5)` Muestra las primeras 5 filas
 
-__df.colums__ -> Muestra los nombres de las columnas 
+`df.printSchema()` Muestra un esquema con las columnas y los tipos de datos del ddr
 
-__df.stype__ -> Muestra los tipos de las columnas 
+`df.colums` Muestra los nombres de las columnas 
+
+`df.stype` Muestra los tipos de las columnas 
 
 ### Funciones de selección 
 
+`df.select(data.edad).show() | show(Truncate=False)`
+ Seleccionar solo una columna
 
-### Pasos
+`df.select(data['edad']).show()`
+ Seleccionar solo una columna
+
+`df.select(data.edad, data.urn_id).show(Truncate=False)`
+ Seleccionar varias columnas
+
+### Agregar nuevas columnas
+
+```
+from pyspark.sql.fuctions import lit
+
+df = data.withColumn('First_Column', lit(1)) \
+      .withColumn('Second_Column', lit(2))
+```
+
+### Operaciones de columnas 
+
+`df.gorupBy("location", "edad").count().show()` Agrupar por columna
+
+`df = df.drop('Second-column', 'Third-column')` Eliminar columna
+
+`df.orderBy('Primera-columna').show()` Ordenar las filas por la primera columna
+
+`df.groupBy('Origin').count().orderBy('count', ascending=False).show()`
+
+
+### Filtrados
+
+Filtrar por una columna:
+
+`madrid = df.filter(col('location')=="Madrid").show(truncate=False)` 
+
+Filtrar por varias columnas:
+
+```
+madrid_18 = df.filter((col('location')=="Madrid")&(col('location')=="Madrid")).show(truncate=False)
+```
+## Pyspark SQL
+
+### Joins
+
+Sintaxis de unión de PySpark:
+
+`df1.join(df2, join_condition, join_type)`
+
+Por defecto y si no ponemos nada el join_type es inner
+
+
+__Inner join__
+
+`df_joined = df_employees.join(df_departments, df_employees.dept_id == df_departments.dept_id)`
+
+__Cross Join__
+
+`df1.crossJoin(df2)`
+
+__Left Join__
+
+`df1.join(df2, join_condition, "left")`
+
+__Left Anti Join__
+
+`df_non_purchasers = df_users.join(df_purchases, df_users.id == df_purchases.user_id, "left_anti")`
+
+###Unions 
+
+Las transformaciones union() y unionAll() de PySpark se utilizan para fusionar dos o más DataFrame del mismo esquema o estructura
+
+### Primeros Pasos
 
 1- Configuramos nuestra 'granja' de spark, el numero de ordenadores, sus ips... en este caso es un solo ordenador local, después creamos un spark context
 
