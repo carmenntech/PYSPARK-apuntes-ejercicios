@@ -1,5 +1,9 @@
 # Apuntes PYSPARK
 
+![image](https://github.com/user-attachments/assets/141f99e0-8d98-44c8-adfb-a6d90bd5c8c9)
+
+
+
 ## Funciones basicas
 
 ### Funciones metadatos
